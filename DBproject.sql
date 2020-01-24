@@ -1,0 +1,4 @@
+create table club(club_id int not null primary key,name varchar(30),country varchar(30),league varchar(30));
+create table coach(coach_id int not null primary key,name varchar(30),age int,experience int,club_id int,start_date date,constraint coach_fk foreign key(club_id) references club(club_id));
+create table players(player_id int not null primary key,name varchar(30),shirt_number int,position int,club_id int,coach_id varchar(30),constraint player_fk1 foreign key(club_id) references club(club_id),constraint player_fk2 foreign key(coach_id) references coach(coach_id));
+create table stadium(stadium_id int not null primary key,name varchar(30),capacity int,city varchar(30),club_id int,constraint stadium_fk foreign key(club_id) references club(club_id));
